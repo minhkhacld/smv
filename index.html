@@ -3,19 +3,28 @@
 
 <head>
     <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <style>
         body {
-            margin: 0px auto;
+            margin: 0px;
             padding: 0px;
             color: white;
             width: 100%;
             border: 1px solid;
         }
+        .container {
+            width: 350px;
+            background-color: darkcyan;
+            text-align: center;
 
+        }
+        .row{
+            width:100%;
+        }
         h1 {
             width: 100%;
             margin: 8px 0px 8px 0px auto;
@@ -75,14 +84,6 @@
             color: white;
             font-weight: bold;
         }
-
-        .container {
-            width: 350px;
-            background-color: darkcyan;
-            text-align: center;
-
-        }
-
         #data {
             width: 100%;
             margin: 0px auto;
@@ -138,15 +139,13 @@
             flex-wrap: wrap;
             text-align: left;
         }
-        @media screen and(max-width: 350px) {
+        @media only screen and (max-width: 600px) {
+            /* .container{
+                width:100%!important;
+            } */
             .container{
-                width: 100%;
-            }
-            table{
-                width: 100%;
-            }            
-            body{
-          width: 100%;
+                width:100%!important;
+                margin-right: none;
             }
         }
     </style>
@@ -154,12 +153,11 @@
 <body>
     <div class="container">
         <div class="row">
-            <h1>SMV FINDER</h1>
-            <div class="form-group">
-                <label for="">Nhập Mã hàng</label>
-                <input type="text" class="form-control" name="" id="input" aria-describedby="helpId"
-                    placeholder="Nhập mã hàng cần tìm">
-            </div>
+                <h1>SMV FINDER</h1>
+                <div class="form-group">
+                    <label for="">Nhập Mã hàng</label>
+                    <input type="text" class="form-control" name="" id="input" aria-describedby="helpId" placeholder="Nhập mã hàng cần tìm">
+                </div>
         </div>       
         <div class="row" id="tabledata">
             <table style="width: 350px">
