@@ -96,7 +96,7 @@
         }
 
         tr td:nth-child(1) {
-            width: 50%;
+            width:45%;
             display: flex;
             flex-direction: row;
             align-items: center;
@@ -108,7 +108,7 @@
 
         tr td:nth-child(3),
         tr td:nth-child(4) {
-            width: 15%;
+            width: 20%;
             display: flex;
             flex-direction: row;
             align-items: left;
@@ -168,7 +168,7 @@
             spData = json.feed.entry;
             //console.log(spData)
             $('#data').html('');
-            $('#data').append('<tr style="font-size:10px"><td>Mã hàng</td><td>Loại hàng</td><td>SMV</td><td>Lost time</td></tr>');
+            $('#data').append('<tr style="font-size:10px; font-weight:bold;margin-top:3px; margin-bottom:3px; background-color: #eb4034; "><td>Mã hàng</td><td>Loại hàng</td><td>SMV</td><td>Lost time</td></tr>');
             
             for (i = 4; i < spData.length; i += 4) {
                 //console.log('Style: '+spData[i]['content']['$t']+', Type: '+spData[(i+1)]['content']['$t']+', SMV: '+spData[(i+2)]['content']['$t']);
