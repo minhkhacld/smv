@@ -14,17 +14,20 @@
             padding: 0px;
             color: white;
             width: 100%;
-        
+
         }
+
         .container {
             width: 350px;
             background-color: darkcyan;
             text-align: center;
 
         }
-        .row{
-            width:100%;
+
+        .row {
+            width: 100%;
         }
+
         h1 {
             width: 100%;
             margin: 8px 0px 8px 0px auto;
@@ -34,12 +37,14 @@
             font-weight: bold;
             color: yellow;
         }
+
         h6 {
             margin: 5px;
             padding: 2px;
             font-size: 0.8em;
             color: yellow
         }
+
         .form-group {
             width: 100%;
             margin: 0px;
@@ -61,8 +66,8 @@
             margin-left: 3px;
             margin-top: 10px;
             margin-bottom: 5px;
-        }     
-        
+        }
+
         #data {
             width: 100%;
             margin: 0px auto;
@@ -100,15 +105,15 @@
             text-align: left;
             margin-left: 10px;
         }
+
         tr td:nth-child(3),
-        tr td:nth-child(4)
-         {
+        tr td:nth-child(4) {
             width: 15%;
             display: flex;
             flex-direction: row;
             align-items: left;
             justify-content: left;
-           margin-left: 10px;
+            margin-left: 10px;
         }
 
         tr td:nth-child(2) {
@@ -120,34 +125,41 @@
             flex-wrap: wrap;
             text-align: left;
         }
+
         @media only screen and (max-width: 600px) {
             /* .container{
                 width:100%!important;
             } */
-            
-            .container{
-                width:100%!important;
-                margin-right: none;               
-            }}           
+
+            .container {
+                width: 100% !important;
+                margin-right: none;
+            }
+        }
     </style>
 </head>
+
 <body>
     <div class="container">
         <div class="row">
-                <h1>SMV FINDER</h1>
-                <div class="form-group">
-                    <label for="">Nhập Mã hàng</label>
-                    <input type="text" class="form-control" name="" id="input" aria-describedby="helpId" placeholder="Nhập mã hàng cần tìm">
-                </div>
-        </div>       
+            <h1>SMV FINDER</h1>
+            <div class="form-group">
+                <label for="">Nhập Mã hàng</label>
+                <input type="text" class="form-control" name="" id="input" aria-describedby="helpId"
+                    placeholder="Nhập mã hàng cần tìm">
+            </div>
+        </div>
         <div class="row" id="tabledata">
-            <table style="width: 350px">
+            <table style="width: 350px">               
                 <tbody id="data">
                 </tbody>
             </table>
         </div>
         <div>
-            <h6><i class="fas fa-user-tie" style="margin: 5px 3px; color:white;font-size: 13px;"></i>IE.Khapham <i class="fas fa-phone" style="margin: 5px 3px; color:white;font-size: 13px;"></i>  0355210716   <i class="far fa-envelope" style="margin: 5px 3px; color:white; font-size: 13px;"></i>pmkha92@gmail.com</h6>
+            <h6><i class="fas fa-user-tie" style="margin: 5px 3px; color:white;font-size: 13px;"></i>IE.Khapham <i
+                    class="fas fa-phone" style="margin: 5px 3px; color:white;font-size: 13px;"></i> 0355210716 <i
+                    class="far fa-envelope" style="margin: 5px 3px; color:white; font-size: 13px;"></i>pmkha92@gmail.com
+            </h6>
         </div>
     </div>
     <script type="text/javascript">
@@ -156,6 +168,8 @@
             spData = json.feed.entry;
             //console.log(spData)
             $('#data').html('');
+            $('#data').append('<tr style="font-size:10px"><td>Mã hàng</td><td>Loại hàng</td><td>SMV</td><td>Lost time</td></tr>');
+            
             for (i = 4; i < spData.length; i += 4) {
                 //console.log('Style: '+spData[i]['content']['$t']+', Type: '+spData[(i+1)]['content']['$t']+', SMV: '+spData[(i+2)]['content']['$t']);
                 $('#data').append('<tr data-style="' + spData[i]['content']['$t'] + '" data-smv="' + spData[(i + 2)]['content']['$t'] + '"><td>' + spData[i]['content']['$t'] + '</td><td>' + spData[(i + 1)]['content']['$t'] + '</td><td>' + spData[(i + 2)]['content']['$t'] + '</td><td>' + spData[(i + 3)]['content']['$t'] + '</td></tr>');
@@ -166,8 +180,9 @@
                 // if ($('#tabledata').css('display') == 'flex') {
                 //     $('#tabledata').css('display', 'none');
                 // } else {
-                    //console.log($('#tabledata').css('display'));
-                    $('#tabledata').css('display', 'flex')
+                //console.log($('#tabledata').css('display'));
+                $('#tabledata').css('display', 'flex')
+                
                 // }
             });
             $('body').on('keyup', '#input', function () {
@@ -179,6 +194,7 @@
                     //let smv = $($('tr')[i]).attr('data-smv');
                     if (style.includes(search)) {
                         $($('tr')[i]).css('display', 'flex');
+                        
                     } else {
                         $($('tr')[i]).css('display', 'none');
                     }
@@ -190,4 +206,5 @@
     <script
         src="https://spreadsheets.google.com/feeds/cells/1kfcNBmT07k0UZ6if0U7BAnna0ZwbQ2nmPu3QxE_TnZE/1/public/values?alt=json-in-script&callback=doData"></script>
 </body>
+
 </html>
