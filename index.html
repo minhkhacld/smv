@@ -14,9 +14,7 @@
             padding: 0px;
             color: white;
             width: 100%;
-
         }
-
         .container {
             width: 350px;
             background-color: darkcyan;
@@ -24,17 +22,12 @@
             justify-content: center;
 
         }
-
-        .row {
-            width: 100%;
-        }
-
+       
         h1 {
             width: 100%;
             margin: 8px 0px 8px 0px auto;
             text-align: center;
-            padding: 0px;
-            /* border: 1px solid; */
+            padding: 0px;            
             font-weight: bold;
             color: yellow;
         }
@@ -50,7 +43,6 @@
             width: 100%;
             margin: 0px;
             padding: 5px;
-            /* border: 1px solid; */
             text-align: left;
         }
 
@@ -73,11 +65,10 @@
             width: 100%;
             margin: 0px auto;
             padding: 0px;
-            text-align: left;
+            text-align: left;           
         }
 
         table {
-            /* border: 1px solid; */
             text-align: left;
             border-bottom: 1px white;
             font-size: 10px;
@@ -97,19 +88,23 @@
         }
 
         tr td:nth-child(1) {
-            width:40%;
+            width: 40%;
+            margin: 0px;
+            padding: 0px;
             display: flex;
             flex-direction: row;
             align-items: center;
             justify-content: left;
             flex-wrap: wrap;
             text-align: left;
-            margin-left: 10px;
+            margin-left: 20px;
         }
 
         tr td:nth-child(3),
         tr td:nth-child(4) {
-            width: 30%;
+            width: 25%;
+            margin: 0px;
+            padding: 0px;
             display: flex;
             flex-direction: row;
             align-items: left;
@@ -118,7 +113,9 @@
         }
 
         tr td:nth-child(2) {
-            width: 30%;
+            margin: 0px;
+            padding: 0px;
+            width: 35%;
             display: flex;
             flex-direction: row;
             align-items: center;
@@ -128,13 +125,8 @@
         }
 
         @media only screen and (max-width: 600px) {
-            /* .container{
-                width:100%!important;
-            } */
-
             .container {
                 width: 100% !important;
-                /* margin-right: none; */
             }
         }
     </style>
@@ -169,8 +161,8 @@
             spData = json.feed.entry;
             //console.log(spData)
             $('#data').html('');
-            // $('#data').append('<tr style="font-size:12px; font-weight:bold;margin-top:3px; margin-bottom:3px; background-color: #eb4034; "><td>Mã hàng</td><td>Loại hàng</td><td>SMV</td><td>Lost time</td></tr>');
-            
+            // $('#title').append('<tr style="font-size:12px; font-weight:bold;margin-top:3px; margin-bottom:3px; background-color: #eb4034; "><td>Mã hàng</td><td>Loại hàng</td><td>SMV</td><td>Lost time</td></tr>');          
+            // $('#title').css('display', 'inline-block');
             for (i = 4; i < spData.length; i += 4) {
                 //console.log('Style: '+spData[i]['content']['$t']+', Type: '+spData[(i+1)]['content']['$t']+', SMV: '+spData[(i+2)]['content']['$t']);
                 $('#data').append('<tr data-style="' + spData[i]['content']['$t'] + '" data-smv="' + spData[(i + 2)]['content']['$t'] + '"><td>' + spData[i]['content']['$t'] + '</td><td>' + spData[(i + 1)]['content']['$t'] + '</td><td>' + spData[(i + 2)]['content']['$t'] + '</td><td>' + spData[(i + 3)]['content']['$t'] + '</td></tr>');
@@ -183,10 +175,10 @@
                 // } else {
                 //console.log($('#tabledata').css('display'));
                 $('#tabledata').css('display', 'flex')
-                
+
                 // }
             });
-            $('body').on('keyup', '#input', function () {
+            $('body').on('keyup', '#input', function () {               
                 $('#tabledata').css('display', 'flex');
                 let search = $(this).val().toLowerCase();
                 for (let i = 0; i < $('tr').length; i++) {
@@ -195,7 +187,7 @@
                     //let smv = $($('tr')[i]).attr('data-smv');
                     if (style.includes(search)) {
                         $($('tr')[i]).css('display', 'flex');
-                        
+
                     } else {
                         $($('tr')[i]).css('display', 'none');
                     }
