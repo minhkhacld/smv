@@ -15,6 +15,7 @@
             color: white;
             width: 100%;
         }
+
         .container {
             width: 350px;
             background-color: darkcyan;
@@ -22,12 +23,12 @@
             justify-content: center;
 
         }
-       
+
         h1 {
             width: 100%;
             margin: 8px 0px 8px 0px auto;
             text-align: center;
-            padding: 0px;            
+            padding: 0px;
             font-weight: bold;
             color: yellow;
         }
@@ -65,7 +66,14 @@
             width: 100%;
             margin: 0px auto;
             padding: 0px;
-            text-align: left;           
+            text-align: left;
+        }
+
+        #title {
+            width: 100%;
+            margin: 0px auto;
+            padding: 0px;
+            text-align: left;
         }
 
         table {
@@ -143,7 +151,9 @@
             </div>
         </div>
         <div class="row" id="tabledata">
-            <table style="width: 350px">               
+            <table style="width: 350px">
+                <!-- <tbody id = "title">
+                </tbody> -->
                 <tbody id="data">
                 </tbody>
             </table>
@@ -159,13 +169,12 @@
         var spData = null;
         function doData(json) {
             spData = json.feed.entry;
-            //console.log(spData)
             $('#data').html('');
-            // $('#title').append('<tr style="font-size:12px; font-weight:bold;margin-top:3px; margin-bottom:3px; background-color: #eb4034; "><td>Mã hàng</td><td>Loại hàng</td><td>SMV</td><td>Lost time</td></tr>');          
-            // $('#title').css('display', 'inline-block');
+            // Code thêm tiêu đề
+            $('#data').append('<tr data-style=" data-smv=" id="tieude" style="font-size:12px; font-weight:bold;margin-top:3px; margin-bottom:3px; background-color: #eb4034; "><td>Mã hàng</td><td>Loại hàng</td><td>SMV</td><td>Lost time</td></tr>');
+
             for (i = 4; i < spData.length; i += 4) {
-                //console.log('Style: '+spData[i]['content']['$t']+', Type: '+spData[(i+1)]['content']['$t']+', SMV: '+spData[(i+2)]['content']['$t']);
-                $('#data').append('<tr data-style="' + spData[i]['content']['$t'] + '" data-smv="' + spData[(i + 2)]['content']['$t'] + '"><td>' + spData[i]['content']['$t'] + '</td><td>' + spData[(i + 1)]['content']['$t'] + '</td><td>' + spData[(i + 2)]['content']['$t'] + '</td><td>' + spData[(i + 3)]['content']['$t'] + '</td></tr>');
+                $('#data').append('<tr id ="dulieu" data-style="' + spData[i]['content']['$t'] + '" data-smv="' + spData[(i + 2)]['content']['$t'] + '"><td>' + spData[i]['content']['$t'] + '</td><td>' + spData[(i + 1)]['content']['$t'] + '</td><td>' + spData[(i + 2)]['content']['$t'] + '</td><td>' + spData[(i + 3)]['content']['$t'] + '</td></tr>');
             }
         }
         $(document).ready(function () {
@@ -178,7 +187,7 @@
 
                 // }
             });
-            $('body').on('keyup', '#input', function () {               
+            $('body').on('keyup', '#input', function () {
                 $('#tabledata').css('display', 'flex');
                 let search = $(this).val().toLowerCase();
                 for (let i = 0; i < $('tr').length; i++) {
@@ -186,10 +195,10 @@
                     let style = $($('tr')[i]).attr('data-style').toLowerCase();
                     //let smv = $($('tr')[i]).attr('data-smv');
                     if (style.includes(search)) {
-                        $($('tr')[i]).css('display', 'flex');
-
+                        $($('tr')[i]).css('display', 'flex');                     
+                        document.getElementById("tieude").style.display ="flex"
                     } else {
-                        $($('tr')[i]).css('display', 'none');
+                        $($('tr')[i]).css('display', 'none');                        
                     }
 
                 }
