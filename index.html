@@ -136,6 +136,10 @@
             .container {
                 width: 100% !important;
             }
+            .data{
+                width: 100% !important;
+            }
+            
         }
     </style>
 </head>
@@ -172,6 +176,13 @@
         var spData = null;
         function doData(json) {
             spData = json.feed.entry;
+            // var data_origin = json.feed.entry
+            // var spData = data_origin.reverse()
+            console.log(spData);
+            console.log(spData[0]['content']['$t']);
+            console.log(spData[1]['content']['$t']);
+            console.log(spData[2]['content']['$t']);
+            console.log(spData[3]['content']['$t']);            
             $('#data').html('');
             // Code thêm tiêu đề
             $('#data').append('<tr data-style=" data-smv=" id="tieude" style="font-size:12px; font-weight:bold;margin-top:3px; margin-bottom:3px; background-color: #eb4034; "><td>Mã hàng</td><td>Loại hàng</td><td>SMV</td><td>Lost time</td></tr>');
