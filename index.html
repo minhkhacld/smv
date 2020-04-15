@@ -136,15 +136,67 @@
             .container {
                 width: 100% !important;
             }
-            .data{
+
+            .data {
                 width: 100% !important;
             }
-            
+
+            .container-fluid {
+                width: 100% !important;
+            }
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+            font-size: 13px !important;
+        }
+
+        li {
+            float: left;
+        }
+
+        li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 10px 12px;
+            text-decoration: none;
+        }
+
+        li a:hover:not(.active) {
+            background-color: #111;
+        }
+
+        .active {
+            background-color: #4CAF50;
+        }
+
+        .container-fluid {
+            /* position: -webkit-sticky; */
+            position: sticky !important;
+            top: 0;
         }
     </style>
 </head>
 
 <body>
+    <div class="container-fluid">
+        <!-- Nar barr -->
+        <div class="row" class="nar-bar">
+            <ul class="limenu">
+                <li><a class="active" href="http://minhkhacld.github.io/smv">Home</a></li>
+                <li><a href="http://minhkhacld.github.io/maytinh">Incentive</a></li>
+                <li><a href="http://minhkhacld.github.io/copt">COPT</a></li>
+                <!-- <li><a href="http://minhkhacld.github.io/smv">SVM</a></li> -->
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+        </div>
+    </div>
     <div class="container">
         <div class="row">
             <h1>SMV FINDER</h1>
@@ -154,7 +206,8 @@
                     placeholder="Nhập mã hàng cần tìm">
             </div>
             <div>
-                <a href="http://minhkhacld.github.io/maytinh/" style="color: yellow;"><i class="far fa-hand-point-down" style="margin-right:5px; font-size:18px;"></i>Ấn để chuyển đến máy tính Incentive</a>
+                <a href="http://minhkhacld.github.io/maytinh/" style="color: yellow;"><i class="far fa-hand-point-down"
+                        style="margin-right:5px; font-size:18px;"></i>Ấn để chuyển đến máy tính Incentive</a>
             </div>
         </div>
         <div class="row" id="tabledata">
@@ -182,7 +235,7 @@
             console.log(spData[0]['content']['$t']);
             console.log(spData[1]['content']['$t']);
             console.log(spData[2]['content']['$t']);
-            console.log(spData[3]['content']['$t']);            
+            console.log(spData[3]['content']['$t']);
             $('#data').html('');
             // Code thêm tiêu đề
             $('#data').append('<tr data-style=" data-smv=" id="tieude" style="font-size:12px; font-weight:bold;margin-top:3px; margin-bottom:3px; background-color: #eb4034; "><td>Mã hàng</td><td>Loại hàng</td><td>SMV</td><td>Lost time</td></tr>');
@@ -209,10 +262,10 @@
                     let style = $($('tr')[i]).attr('data-style').toLowerCase();
                     //let smv = $($('tr')[i]).attr('data-smv');
                     if (style.includes(search)) {
-                        $($('tr')[i]).css('display', 'flex');                     
-                        document.getElementById("tieude").style.display ="flex"
+                        $($('tr')[i]).css('display', 'flex');
+                        document.getElementById("tieude").style.display = "flex"
                     } else {
-                        $($('tr')[i]).css('display', 'none');                        
+                        $($('tr')[i]).css('display', 'none');
                     }
 
                 }
