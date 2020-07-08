@@ -8,166 +8,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <style>
-        body {
-            margin: 0px;
-            padding: 0px;
-            color: white;
-            width: 100%;
-        }
-
-        .container {
-            width: 350px;
-            background-color: darkcyan;
-            text-align: center;
-            justify-content: center;
-
-        }
-
-        h1 {
-            width: 100%;
-            margin: 8px 0px 8px 0px auto;
-            text-align: center;
-            padding: 0px;
-            font-weight: bold;
-            color: yellow;
-        }
-
-        h6 {
-            margin: 5px;
-            padding: 2px;
-            font-size: 0.8em;
-            color: yellow
-        }
-
-        .form-group {
-            width: 100%;
-            margin: 0px;
-            padding: 5px;
-            text-align: left;
-        }
-
-        input[type=text]:hover {
-            background-color: greenyellow;
-            color: black;
-        }
-
-        #btn {
-            width: 100px;
-            height: 40px;
-            border: 1px solid;
-            text-align: center;
-            margin-left: 3px;
-            margin-top: 10px;
-            margin-bottom: 5px;
-        }
-
-        #data {
-            width: 100%;
-            margin: 0px auto;
-            padding: 0px;
-            text-align: left;
-        }
-
-        #title {
-            width: 100%;
-            margin: 0px auto;
-            padding: 0px;
-            text-align: left;
-        }
-
-        table {
-            text-align: left;
-            border-bottom: 1px white;
-            font-size: 10px;
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: left;
-            width: 100%;
-        }
-
-        tr {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-        }
-
-        tr td:nth-child(1) {
-            width: 40%;
-            margin: 0px;
-            padding: 0px;
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: left;
-            flex-wrap: wrap;
-            text-align: left;
-            margin-left: 20px;
-        }
-
-        tr td:nth-child(3),
-        tr td:nth-child(4) {
-            width: 25%;
-            margin: 0px;
-            padding: 0px;
-            display: flex;
-            flex-direction: row;
-            align-items: left;
-            justify-content: left;
-            margin-left: 10px;
-        }
-
-        tr td:nth-child(2) {
-            margin: 0px;
-            padding: 0px;
-            width: 35%;
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: left;
-            flex-wrap: wrap;
-            text-align: left;
-        }
-
-       
-        ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-            background-color: #333;
-            font-size: 13px !important;
-        }
-
-        li {
-            float: left;
-        }
-
-        li a {
-            display: block;
-            color: white;
-            text-align: center;
-            padding: 10px 12px;
-            text-decoration: none;
-        }
-
-        li a:hover:not(.active) {
-            background-color: #111;
-        }
-
-        .active {
-            background-color: #4CAF50;
-        }
-
-        .container-fluid {
-            /* position: -webkit-sticky; */
-            position: sticky !important;
-            top: 0;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -187,32 +28,53 @@
     </div>
     <div class="container">
         <div class="row">
-            <h1>SMV FINDER</h1>
+            <h1><i class="fa fa-clock" aria-hidden="true"></i> SMV FINDER</h1>
             <div class="form-group">
-                <label for="">Nhập Mã hàng</label>
+                <label for=""><i class="fa fa-star" aria-hidden="true"></i> Nhập Mã hàng</label>
                 <input type="text" class="form-control" name="" id="input" aria-describedby="helpId"
                     placeholder="Nhập mã hàng cần tìm">
             </div>
-            <div>
-                <a href="http://minhkhacld.github.io/maytinh/" style="color: yellow;"><i class="far fa-hand-point-down"
-                        style="margin-right:5px; font-size:18px;"></i>Ấn để chuyển đến máy tính Incentive</a>
-            </div>
+        </div>
+        <div class="row">
+            <a class="link" href="http://minhkhacld.github.io/maytinh/"><i class="far fa-hand-point-down"></i> Ấn để
+                chuyển đến máy tính Incentive</a>
         </div>
         <div class="row" id="tabledata">
-            <table style="width: 350px">
-                <!-- <tbody id = "title">
-                </tbody> -->
+            <table>
                 <tbody id="data">
                 </tbody>
             </table>
         </div>
-        <div>
-            <h6><i class="fas fa-user-tie" style="margin: 5px 3px; color:white;font-size: 13px;"></i>IE.Khapham <i
-                    class="fas fa-phone" style="margin: 5px 3px; color:white;font-size: 13px;"></i> 0355210716 <i
-                    class="far fa-envelope" style="margin: 5px 3px; color:white; font-size: 13px;"></i>pmkha92@gmail.com
-            </h6>
+        <!-- hidden data -->
+        <div class="row" id="newtabledata" style="display:none">
+            <table>
+                <tbody id="newdata">
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+    <div class="container" id="bottom">
+        <div class="row">
+            <div class="col">
+                <div class="social-icons">
+                    <a class="social-icon" href="https://www.linkedin.com/in/kha-ph%E1%BA%A1m-minh-58aa68153/"><i
+                            class="fab fa-linkedin-in"></i></a><a class="social-icon"
+                        href="https://www.instagram.com/minhkhacld/"><i class="fab fa-instagram"></i></a><a
+                        class="social-icon" href="https://www.facebook.com/phamminh.kha"><i
+                            class="fab fa-facebook-f"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col" id="footer">
+                Ứng dụng tìm SMV mã hàng<br />
+                Tel: 0355210716, Email: pmkha92@gmail.com. <br />
+                ©Khapham 2020. All rights reserved.
+            </div>
         </div>
     </div>
+
     <script type="text/javascript">
         var spData = null;
         function doData(json) {
@@ -226,11 +88,15 @@
             console.log(spData[3]['content']['$t']);
             $('#data').html('');
             // Code thêm tiêu đề
-            $('#data').append('<tr data-style=" data-smv=" id="tieude" style="font-size:12px; font-weight:bold;margin-top:3px; margin-bottom:3px; background-color: #eb4034; "><td>Mã hàng</td><td>Loại hàng</td><td>SMV</td><td>Lost time</td></tr>');
+            $('#data').append('<tr data-style=" data-smv=" id="tieude" style="height:3rem;font-size:12px; font-weight:bold;margin-top:8px; margin-bottom:8px; background-color: darkcyan;color:white; "><td>Mã hàng</td><td>Loại hàng</td><td>SMV</td><td>Lost time</td></tr>');
 
             for (i = 4; i < spData.length; i += 4) {
+            // for (i = 4; i < 200; i += 4) {
                 $('#data').append('<tr id ="dulieu" data-style="' + spData[i]['content']['$t'] + '" data-smv="' + spData[(i + 2)]['content']['$t'] + '"><td>' + spData[i]['content']['$t'] + '</td><td>' + spData[(i + 1)]['content']['$t'] + '</td><td>' + spData[(i + 2)]['content']['$t'] + '</td><td>' + spData[(i + 3)]['content']['$t'] + '</td></tr>');
             }
+            // for (i = 4; i < spData.length; i += 4) {
+            //     $('#newdata').append('<tr id ="newdulieu" data-style="' + spData[i]['content']['$t'] + '" newdata-smv="' + spData[(i + 2)]['content']['$t'] + '"><td>' + spData[i]['content']['$t'] + '</td><td>' + spData[(i + 1)]['content']['$t'] + '</td><td>' + spData[(i + 2)]['content']['$t'] + '</td><td>' + spData[(i + 3)]['content']['$t'] + '</td></tr>');
+            // }
         }
         $(document).ready(function () {
             $('body').on('click', '#show', function () {
@@ -246,7 +112,9 @@
                 $('#tabledata').css('display', 'flex');
                 let search = $(this).val().toLowerCase();
                 for (let i = 0; i < $('tr').length; i++) {
+                    // for (let i = 0; i < spData.length; i++) {
                     $($('tr')[i]).css('display', 'flex');
+                    // let style = $($('tr')[i]).attr('data-style').toLowerCase();
                     let style = $($('tr')[i]).attr('data-style').toLowerCase();
                     //let smv = $($('tr')[i]).attr('data-smv');
                     if (style.includes(search)) {
