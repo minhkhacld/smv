@@ -36,6 +36,9 @@
             </div>
         </div>
         <div class="row">
+            <button onclick=scroll_bottom();>Xem Mã hàng mới nhất</button>
+        </div>
+        <div class="row">
             <a class="link" href="http://minhkhacld.github.io/maytinh/"><i class="far fa-hand-point-down"></i> Ấn để
                 chuyển đến máy tính Incentive</a>
         </div>
@@ -51,6 +54,9 @@
                 <tbody id="newdata">
                 </tbody>
             </table>
+        </div>
+        <div class="row">
+            <button onclick=scroll_top();>Về đầu trang</button>
         </div>
 
     </div>
@@ -73,7 +79,9 @@
                 ©Khapham 2020. All rights reserved.
             </div>
         </div>
+        
     </div>
+    
 
     <script type="text/javascript">
         var spData = null;
@@ -127,6 +135,12 @@
                 }
             })
         });
+        function scroll_bottom(){
+            window.scrollBy(0, 500000)
+        }
+        function scroll_top(){
+            window.scrollBy(0, -500000)
+        }
     </script>
     <script
         src="https://spreadsheets.google.com/feeds/cells/1kfcNBmT07k0UZ6if0U7BAnna0ZwbQ2nmPu3QxE_TnZE/1/public/values?alt=json-in-script&callback=doData"></script>

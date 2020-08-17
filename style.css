@@ -53,12 +53,33 @@ input[type="text"]:hover {
   background-color: greenyellow;
   color: black;
 }
+button{
+  background-color: tomato;
+  text-align: center;
+  font-weight: bold;
+  color: white;
+  margin: auto;
+  border: none;
+  height: 40px;
+  width: 200px;
+  border-radius: 50px;
+  box-shadow: 2px 2px 2px grey;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+button:hover{
+  background-color: red;
+  color: white;
+}
 
 .link{
     color: black !important;
     font-size: 2rem;
     margin-top: 2rem !important;
     margin-bottom: 2rem !important;
+}
+.link:hover{
+  color: red !important;
 }
 
 #data {
